@@ -6,7 +6,11 @@ letterFrequencyLkup = "etaoinshrdlcumwfgypbvkjxqz"
 def scoreString(input):
 	score = 0
 	for letter in input.lower():
-		score += 26 - letterFrequencyLkup.index(letter)
+		try:
+			index = letterFrequencyLkup.index(chr(letter))
+			score += 26 - index
+		except:
+			pass
 	return score
 
 def decodeString(input):
@@ -15,10 +19,11 @@ def decodeString(input):
 	bestScore = 0
 
 	while letterIndex <= 123:
-		currentString = challenge2.performXOR(input, chr(letterIndex))
+		currentString = challenge2.performXOR(input, [letterIndex])
+		#print (currentString.decode("utf-8"))
 		currentScore = scoreString(currentString)
 		if (currentScore > bestScore):
 			bestScore = currentScore
 			bestResult = currentString
-
+		letterIndex = letterIndex + 1
 	return bestResult
