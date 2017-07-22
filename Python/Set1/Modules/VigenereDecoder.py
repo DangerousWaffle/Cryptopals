@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import challenge2
+import XOR
 
 letterFrequencyLkup = "etaoinshrdlcumwfgypbvkjxqz"
 
