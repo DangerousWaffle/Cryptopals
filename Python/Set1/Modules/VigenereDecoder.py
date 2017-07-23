@@ -19,7 +19,7 @@ def decodeString(input):
 	bestScore = 0
 
 	while letterIndex <= 123:
-		currentString = challenge2.performXOR(input, [letterIndex])
+		currentString = XOR.performXOR(input, [letterIndex])
 		#print (currentString.decode("utf-8"))
 		currentScore = scoreString(currentString)
 		if (currentScore > bestScore):

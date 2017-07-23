@@ -1,18 +1,20 @@
 #!/usr/bin/python3
-from ..Modules import ConvertEncoding
+import sys, os
+sys.path.append(os.path.join(os.path.dirname(sys.path[0]),'Modules'))
+import ConvertEncoding
 
 toDecode = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d"
 expected = "SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t"
 
 def testChallenge1():
-        decoded = challenge1.convertHexToBase64(toDecode)
+        decoded = ConvertEncoding.convertHexToBase64(toDecode)
         if (decoded == expected):
                 return True
         else:
                 return False
 
 def testChallenge1Rev():
-	encoded = challenge1.convertBase64ToHex(expected)
+	encoded = ConvertEncoding.convertBase64ToHex(expected)
 	if (encoded == toDecode):
 		return True
 	else:
